@@ -1,0 +1,78 @@
+<html>
+<head>
+<style>
+/* Add a background image to the form */
+form {
+  background-image: url("https://images.unsplash.com/photo-1517343985841-f8b2d66e010b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2NhbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Add custom fonts using Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto|Lobster');
+
+h1 {
+  font-family: 'Lobster', cursive;
+  text-align: center;
+}
+
+label, input, button, p {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Style the input fields and the button */
+input {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+}
+
+button {
+  display: block;
+  width: 40%;
+  margin: 20px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Style the result paragraph */
+p {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+<script>
+// Define a function to calculate the BMI
+function calculateBMI() {
+  // Get the weight and height input values
+  var weight = document.getElementById("weightInput").value;
+  var height = document.getElementById("heightInput").value;
+
+  // Convert the height from centimeters to meters
+  height = height / 100;
+
+  // Calculate the BMI using the formula
+  var bmi = weight / (height * height);
+
+  // Display the BMI result on the web page
+  document.getElementById("result").innerHTML = "Your BMI is " + bmi.toFixed(2);
+}
+</script>
+</head>
+<body>
+<h1>BMI Calculator</h1>
+<form>
+  <label for="weightInput">Weight (kg):</label>
+  <input type="number" id="weightInput" name="weightInput" min="0" required><br>
+  <label for="heightInput">Height (cm):</label>
+  <input type="number" id="heightInput" name="heightInput" min="0" required><br>
+  <button type="button" id="calculateBtn" onclick="calculateBMI()">Calculate</button>
+</form>
+<p id="result"></p>
+</body>
+</html>
